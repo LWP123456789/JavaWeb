@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉列表onchange</title>
+    <script type="text/javascript">
+      function onchangFun() {
+        alert("女神已经改变了");
+      }
+
+      //动态注册onchange事件
+      window.onload = function () {
+        var selObj = document.getElementById("chang1");
+        /*alert(selObj);*/
+        selObj.onchange = function () {
+          alert("男神已经改变了");
+        }
+      }
+
+    </script>
+</head>
+<body>
+  请选择你心中的女神：
+  <!--静态注册onchange事件-->
+    <select onchange="onchangFun();">
+      <option>--张柏芝--</option>
+      <option>--宋祖儿--</option>
+      <option>--唐嫣--</option>
+      <option>--江疏影--</option>
+      <option>--迪丽热巴--</option>
+    </select>
+    <br>
+  请选择你心中的男神：
+  <!--动态注册onchange事件-->
+  <select id="chang1">
+    <option>--伟培--</option>
+    <option>--乐培--</option>
+    <option>--乐乐乐乐培--</option>
+    <option>--培哥--</option>
+    <option>--培帅--</option>
+  </select>
+</body>
+</html>

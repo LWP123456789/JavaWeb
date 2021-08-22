@@ -1,0 +1,21 @@
+110.42.128.150
+
+服务器用户名密码：
+root
+Golang123456
+
+宝塔网址，账号及密码：
+别名：lep101的宝塔Linux面板
+外网面板地址: http://110.42.128.150:8888/8f4c872e 8888端口
+内网面板地址: http://10.0.4.2:8888/8f4c872e
+username: aqh8fncu
+password: d0ed6ace
+修改后：
+username: lep101
+password: Golang123456
+
+WordPress用户名密码：
+username: lep101
+password: TWl@SXpeKgIiqVVtGX
+LWP13226968149@163.com
+

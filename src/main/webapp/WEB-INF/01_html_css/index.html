@@ -1,0 +1,203 @@
+<!DOCTYPE html><!-- 约束 声明 -->
+<html lang="en"><!-- html标签表示html的开始 -->
+<head><!-- 表示头部信息，一般包含三部分内容，title标签，css样式，js代码 -->
+    <meta charset="UTF-8"><!-- 表示当前页面使用UTF-8字符集 -->
+    <title>Hello JAVAWEB!</title><!-- 表示标题 -->
+    <link rel="stylesheet" type="text/css" href="1.css"/>
+</head>
+<body><!-- body标签是整个HTML标签显示的主题内容 -->
+    <h1>JAVA WEB学习指南</h1>
+    <h2>Part 1 超链接</h2>
+    超链接：<a href="https://www.csdn.net/" target="_blank">CSDN</a>
+    <button onclick="alert('点击此超链接可跳转至CSDN主页')">点击查看事件</button>
+     <br>
+    超链接：<a href="https://www.baidu.com" target="_blank">百度</a>
+    <button onclick="alert('点击此超链接可跳转至百度主页')">点击查看事件</button>
+    <br>
+    超链接：<a href="https://www.bilibili.com/" target="_blank">哔哩哔哩</a>
+    <button onclick="alert('点击此超链接可跳转至bilibili主页')">点击查看事件</button>
+    <br>
+    超链接：<a href="https://www.youku.com/" target="_blank">优酷</a>
+    <button onclick="alert('点击此超链接可跳转至优酷首页')">点击查看事件</button>
+    <br/>
+    <br/>
+    <h2>Part 2 列表</h2>
+    <ul><!-- unorder list -->
+        <li>骆伟培</li><!-- list item -->
+        <li>黄海华</li>
+        <li>利伟森</li>
+        <li>吕秋洋</li>
+        <li>严骏颖</li>
+    </ul>
+    <ol><!-- order list -->
+        <li>骆伟培</li><!-- list item -->
+        <li>黄海华</li>
+        <li>利伟森</li>
+        <li>吕秋洋</li>
+        <li>严骏颖</li>
+    </ol>
+    <h2>Part 3 image标签</h2>
+    <img src="../../image/Lebron.jpg" width="400" height="260" border="1" alt="路径出错"><!--img标签是图片标签，用来显示图片
+                    src属性可以设置图片的路径
+
+                    在web中路径分为相对路径和绝对路径两种
+                        相对路径：
+                            .     表示当前文件所在的目录
+                            ..    表示当前文件所在的上一级目录
+                            文件名 表示当前文件所在目录的文件
+                        绝对路径：
+                            格式是：http：//ip:port/工程名/资源路径
+                 -->
+    <button onclick="alert('Lebron James')">点击查看最强球星</button>
+    <h2>Part 4 表格标签</h2>
+    <!--  table 标签是表格标签
+            border 设置表格边框
+            width  设置表格宽度
+            height 设置表格高度
+            aligh  设置表格相对于页面的对齐方式
+          tr 是行标签
+          th 是表头标签
+          td 是单元格标签
+            align 设置单元格文本对齐方式
+          b标签是加粗标签
+    -->
+        <table border="1" width="300" height="300" cellspacing="0">
+            <tr>
+                <td align="center"><b>1.1</b></td>
+                <th>1.2</th><!--效果与上相同-->
+                <th>1.3</th>
+            </tr>
+            <tr>
+                <th>2.1</th>
+                <th>2.2</th>
+                <th>2.3</th>
+            </tr>
+            <tr>
+                <th>3.1</th>
+                <th>3.2</th>
+                <th>3.3</th>
+            </tr>
+        </table>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <h2 align="left">Part 5 表单的显示</h2>
+    <!-- form标签是表单标签
+            action属性设置提交的服务器地址
+            method属性设置提交的方式GET（默认值）或POST
+
+         表单提交的时候，数据没有发送给服务器的三种情况：
+            1、表单项没有name属性值
+            2、单选、复选（下拉列表中的option标签）都需要添加value标签，以便发送给服务器
+            3、表单项不在提交的form标签中
+
+         GET请求的特点是：
+            1、浏览器地址栏中的地址是：action属性[+？+请求参数]
+                请求参数的格式是：name=value&name=value&......   URL?name=value&name=value  &连字符
+            2、不安全
+            3、它有数据长度的限制，长度过多请用post
+
+         POST请求的特点是：
+            1、浏览器地址栏中只有action属性值
+            2、相对于GET请求要安全
+            3、理论上没有数据长度的限制
+    -->
+    <form action="http://www.baidu.com" method="get">
+        <h3 align="center">用户注册</h3>
+        <table align="center"><!--用一个表格装会使表单更齐整好看-->
+            <tr>
+                <td>用户名称：</td>
+                <td>
+                    <input type="text" value="000" name="username">
+                </td>
+            </tr>
+            <tr>
+                <td>用户密码：</td>
+                <td><input type="password" maxlength="16" name="password"></td>
+            </tr>
+            <tr>
+                <td>确认密码：</td>
+                <td><input type="password" maxlength="16" name="password_again"></td>
+            </tr>
+            <tr>
+                <td>性别：</td>
+                <td><input type="radio" name="sex" checked="checked" value="boy">男<input type="radio" name="sex" value="girl">女</td>
+            </tr>
+            <tr>
+                <td>兴趣爱好：</td>
+                <td><input type="checkbox" name="interest" value="js">JavaScript<input type="checkbox" name="interest" value="java">Java<input type="checkbox" name="interest" value="cpp">C++</td>
+            </tr>
+            <tr>
+                <td>国籍：</td>
+                <td>
+                    <select name="country">
+                        <option value="none">--请选择国籍--</option>
+                        <option selected="selected" value="CN">中国</option><!--selected属性默认选择-->
+                        <option value="US">美国</option>
+                        <option>阿根廷</option>
+                        <option>澳大利亚</option>
+                        <option>日本</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>自我评价：</td>
+                <td>
+                    <textarea rows="10" cols="20" name="desc">爱你哦
+                    </textarea>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="reset" value="reset"></td>                         <!-- 功能按钮 -->
+                <td align="center"><input type="submit" value="submit"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="abc"></td>
+                <td><input type="file"></td>
+            </tr>
+            <tr>
+                <td><input type="hidden"></td>
+                <td></td>
+            </tr>
+        </table>
+    </form>
+        <hr>
+    <form action="http://localhost:8080" method="get">
+        用户名称：<input type="text" value="000"><br><!--value设置显示内容（默认值）-->
+        用户密码：<input type="password" maxlength="16"><br><!--maxlength限制长度为多少 size是文本框的长度-->
+        确认密码：<input type="password" maxlength="16"><br>
+        性别： <input type="radio" name="sex" checked="checked"><!--radio是单选框-->男<input type="radio" name="sex">女<!--name属性可以对其进行分组，让只能选中一个--><br>
+        兴趣爱好：<input type="checkbox" >JavaScript<input type="checkbox" >Java<input type="checkbox" >C++ <br><!--checked属性可以让它默认选中-->
+        国籍：<select>
+                <option>--请选择国籍--</option>
+                <option selected="selected">中国</option><!--selected属性默认选择-->
+                <option>美国</option>
+                <option>阿根廷</option>
+                <option>澳大利亚</option>
+                <option>日本</option>
+             </select><br>
+        自我评价：<textarea rows="10" cols="20">爱你哦
+                </textarea><br><!--textarea 表示多行文本输入框 rows 属性设置可以显示几行的高度 cols 属性设置每行可以显示几个字符宽度-->
+        <input type="reset" value="reset"><!--重置按钮 value属性修改按钮上的文本-->
+        <input type="submit" value="submit"><!--提交按钮-->
+        <input type="button" value="abc"><!--按钮-->
+        <input type="file"> <!--是文件上传域-->
+        <input type="hidden"><!--隐藏域 当我们要发送某些信息，而这些信息，不需要用户参与，就可以使用隐藏域（提交 的时候同时发送给服务器）-->
+    </form>
+    <h2>Part 6 其他标签</h2>
+        <!--
+            div标签默认独占一行
+            span标签 它的长度是封装数据的长度
+            p段落标签 默认会在段落的上方或下方各空出一行来（如果已有就不再空）
+        -->
+        <div>div标签</div>
+        <div>div标签</div>
+        <span>span标签</span>
+        <span>span标签</span>
+        <p>p段落标签1</p>
+        <p>p段落标签2</p>
+        <br>
+        <div id="id001">div标签1</div>
+        <div id="id002">div标签2</div>
+        <div class="class01">div标签3</div>
+        <div class="class02">div标签4</div>
+</body>
+</html>

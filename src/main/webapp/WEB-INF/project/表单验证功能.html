@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单验证功能</title>
+    <style type="text/css">
+      .first {
+        color: red;
+      }
+    </style>
+    <script type="text/javascript" src="jquery-1.7.2.js"></script>
+    <script type="text/javascript">
+      $(function ()
+      {
+        //定义开关变量
+        var flagUser=false;
+        var flagPwd=false;
+        var flagCpwd=false;
+        var flagEmail=false;
+        var flagtele=false;
+        var flagname=false;
+        var flagProvince=false;
+        var flagtech=true;
+        var n=0;
+
+        //标签元素
+        var username = $(`#txtUser`);
+        var password = $(`#txtPwd`);
+        var password_sure = $("#txtRpt");
+        var email = $("#txtMail");
+        var telephone = $("#txtTel");
+        var name = $("#realName");
+        var provice = $("#selProvice");
+        //校验用户名是否合法
+        username.blur( function ()
+        {
+          var usernameText = username.val();
+          /*alert(username.val());
+          alert($(username).val());*/
+          var patt = /^[a-z0-9_-]{3,5}$/;
+
+          //验证用户名是否输入正确
+          if (patt.test(usernameText))
+          {
+            /*console.log("123");*/
+            $("#tips_username").html("输入正确");
+            $("#tips_username").css({color: "green" });
+            flagUser=true;
+          } else
+          {
+            $("#tips_username").css({color: "red" });
+          }
+        })
+        //校验密码是否合法
+        password.blur ( function ()
+        {
+          var passwordText = password.val();
+
+          var patt = /^[a-z0-9_-]{8,12}$/;
+          //验证密码是否输入正确
+          if (patt.test(passwordText))
+          {
+            $("#tips_password").html("输入正确");
+            $("#tips_password").css({color: "green" });
+            flagPwd=true;
+          } else
+          {
+            $("#tips_password").css({color: "red" });
+          }
+        })
+        //校验确认密码是否输入一致
+        password_sure.blur ( function ()
+        {
+          var passwordText = password.val();
+
+          var password_sureText = password_sure.val();
+
+          if (password_sureText === passwordText)
+          {
+            $("#tips_password_sure").html("输入正确");
+            $("#tips_password_sure").css({color:"green"});
+            flagCpwd=true;
+          }
+          else
+          {
+            $("#tips_password_sure").html("两次输入密码不一致")
+            $("#tips_password_sure").css({color:"red"});
+          }
+
+        })
+        //校验电子邮箱是否正确
+        email.blur ( function ()
+        {
+          var emailText = email.val();
+
+          var patt = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+
+          if (patt.test(emailText))
+          {
+            $("#tips_email").html("输入正确");
+            $("#tips_email").css({color:"green"});
+            flagEmail=true;
+          }
+          else
+          {
+            $("#tips_email").html("不符合格式 格式示例：xxxxxxxx@163.com");
+            $("#tips_email").css({color:"red"});
+          }
+        })
+        //校验手机号码
+        telephone.blur ( function ()
+        {
+          var telephoneText = telephone.val();
+
+          var patt = /^[0-9]{11}$/;
+
+          if (patt.test(telephoneText))
+          {
+            $("#tips_telephone").html("输入正确");
+            $("#tips_telephone").css({color:"green"});
+            flagtele=true;
+          }
+          else
+          {
+            $("#tips_telephone").html("输入长度错误");
+            $("#tips_telephone").css({color:"red"});
+          }
+        })
+        //校验真实姓名
+        name.blur ( function ()
+        {
+          var nameText = name.val();
+
+          var regName =/^[\u4e00-\u9fa5]{2,5}$/;
+
+          if (regName.test(nameText))
+          {
+            $("#tips_name").html("输入正确");
+            $("#tips_name").css({color:"green"});
+            flagname=true;
+          }
+          else
+          {
+            $("#tips_name").html("输入不合法");
+            $("#tips_name").css({color:"red"});
+          }
+        })
+
+        //校验省份是否进行了选择
+        provice.change ( function ()
+        {
+          var coun = $("#selProvice option:selected").text();
+
+          if (coun === "--请选择--")
+          {
+            $("#tips_Provincetype").html("×"+"你未选择省份");
+            $("#tips_Provincetype").css({color:"red"});
+            flagProvince=false;
+          }
+          else {
+            $("#tips_Provincetype").html("你选择了"+ coun +"省份");
+            $("#tips_Provincetype").css({color:"green"});
+            flagProvince=true;
+          }
+        })
+        //校验注册
+        $("#form").submit ( function ()
+        {
+          //校验单选按钮是否已经选择
+          $("input[type='radio']").each(function ()
+          {
+            if ($(this).is(":checked")) {
+              n++;
+            }
+          })
+          if (n===0)
+          {
+            $("#tips_tech").html("×");
+            $("#tips_tech").css({"color":"red","font-size":"30px"});
+          }
+          else
+          {
+            $("#tips_tech").html("√");
+            $("#tips_tech").css({"color":"green","font-size":"15px"});
+            flagtech=true;
+          }
+          if(flagUser && flagPwd && flagCpwd && flagEmail && flagtele && flagname && flagtech && flagProvince){
+            alert('注册成功!');
+          }
+          else{
+            return false;
+          }
+        })
+      })
+
+    </script>
+</head>
+<body>
+<form id="form" action=NULL method="get">
+  <h3 class="head_01" align="center">用户注册</h3>
+  <table align="center"><!--用一个表格装会使表单更齐整好看-->
+    <!--第一行用户名-->
+    <tr>
+      <td><span class="first">*</span>用户名</td>
+      <td>
+        <input id="txtUser" type="text" value="" name="username">
+      </td>
+      <td>
+        <span id="tips_username">用户名由3-5个字符组成</span>
+      </td>
+    </tr>
+    <!--第二行密码-->
+    <tr>
+      <td><span class="first">*</span>密码</td>
+      <td><input id="txtPwd" type="password" name="password"></td>
+      <td>
+        <span id="tips_password">请输入8-12位密码</span>
+      </td>
+    </tr>
+    <!--第三行确认密码-->
+    <tr>
+      <td><span class="first">*</span>确认密码</td>
+      <td><input id="txtRpt" type="password"  name="password_again"></td>
+      <td><span id="tips_password_sure">请再次输入你的密码</span></td>
+    </tr>
+    <!--第四行用户类型-->
+    <tr>
+      <td><span class="first">*</span>Email</td>
+      <td>
+        <input id="txtMail" type="email">
+      </td>
+      <td>
+        <span id="tips_email">格式示例：xxxxxxxx@163.com</span>
+      </td>
+    </tr>
+    <!--第五行手机号码-->
+    <tr>
+      <td><span class="first">*</span>手机号码</td>
+      <td>
+        <input id="txtTel" type="tel">
+      </td>
+      <td>
+        <span id="tips_telephone">格式示例：13803780000</span>
+      </td>
+    </tr>
+    <!--第六行真实姓名-->
+    <tr>
+      <td><span class="first">*</span>真实姓名</td>
+      <td>
+        <input id="realName" type="text">
+      </td>
+      <td>
+        <span id="tips_name">由2-5个中文组成</span>
+      </td>
+    </tr>
+    <!--第七行省份-->
+    <tr>
+      <td><span class="first">*</span>省份</td>
+      <td>
+        <select id="selProvice" name="Provicetype">
+          <!--selected属性默认选择-->
+          <option value="none">--请选择--</option>
+          <option value="GD">广东</option>
+          <option value="GX">广西</option>
+          <option value="HeNu">河南</option>
+          <option value="HaiNan">海南</option>
+          <option value="Beijing">北京</option>
+          <option value="Shangdong">山东</option>
+          <option value="Xinjiang">新疆</option>
+          <option value="Neimenggu">内蒙古</option>
+          <option value="other">其他</option>
+        </select>
+      </td>
+      <td>
+        <span id="tips_Provincetype">请选择省份</span>
+      </td>
+    </tr>
+    <!--第八行技术方向-->
+    <tr>
+      <td><span class="first">*</span>技术方向</td>
+      <td>
+          <input type="radio" name="tech" value="Java">Java
+          <input type="radio" name="tech" value=".Net">.Net
+          <input type="radio" name="tech" value="PHP">PHP
+          <input type="radio" name="tech" value="网页">网页
+          <input type="radio" name="tech" value="IOS">IOS
+          <input type="radio" name="tech" value="Android">Android
+      </td>
+      <td>
+        <span id="tips_tech"></span>
+      </td>
+    </tr>
+ <!--   <tr>
+      <td>自我介绍</td>
+      <td>
+        <textarea id="txtIntro" rows="10" cols="20" name="desc" onblur="return checkForm()">
+        </textarea>
+      </td>
+      <td>
+        <span id="tips_self">*限100字以内</span>
+      </td>
+    </tr>-->
+    <tr>
+      <td></td>                         <!-- 功能按钮 -->
+      <td colspan="2" align="center"><b><input type="submit" value="注册"> <input type="reset" value="重置"></b></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

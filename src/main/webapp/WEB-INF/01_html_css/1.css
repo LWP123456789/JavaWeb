@@ -1,0 +1,43 @@
+div{        /*标签选择器*/
+    border: 1px solid wheat;
+    color: darkgoldenrod;
+    font-size: 30px;
+}
+
+span{
+    border: 3px dashed green;
+    color: yellow;
+    font-size: 20px;
+}
+
+#id001{     /*ID选择器（优先级最高）*/
+    border: none;
+    color: #0099ff;
+    font-size: 30px;
+}
+
+#id002{
+    border: none;
+    color: skyblue;
+    font-size: 30px;
+}
+
+.class01{   /*类选择器*/
+    border: none;
+    color: darkgoldenrod;
+    font-size: 40px;
+}
+
+.class02{
+    border: none;
+    color: aquamarine;
+    font-size: 40px;
+}
+
+/*组合选择器
+    格式是：
+        选择器1，选择器2，选择器n{
+            属性：值
+        }
+    组合选择器可以让多个选择器共用同一个css样式代码
+*/

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>乔布斯学正则表达式</title>
+    <script type="text/javascript">
+      //表示要求字符串中，是否包含字母e
+      /*var patt = new RegExp("e");*/
+      /*var patt = /e/;*/
+      // 表示要求字符串中，是否包含字母a或b或c
+      /*var patt = /[abc]/;*/
+      // 表示要求字符串，是否包含小写字母
+      /*var patt = /[a-z]/;*/
+      // 表示要求字符串，是否包含大写字母
+      /*var patt = /[A-Z]/;*/
+      // 表示要求字符串，是否包含任意数字
+      /*var patt = /[0-9]/;*/
+      // 表示要求字符串，是否包含任意字母，数字和下划线，是个“或”的关系
+      /*var patt = /\w/;*/
+      // 表示要求 字符串中是否包含至少一个a
+      /*var patt = /a+/;*/
+      // 表示要求 字符串中是否包含零个 或 多个a
+      /*var patt = /a*!/;*/
+      // 表示要求 字符串是否包含一个或零个a
+      /*var patt = /a?/;*/
+      //表示要求 字符串是否包含连续三个a
+      /*var patt = /a{3}/;*/
+      //表示要求 字符串是否包含 至少3个连续的a，最多5个连续的a
+      /*var patt = /a{3,5}/;*/
+      //表示要求 字符串是否 包含 至少3个连续的a
+      /*var patt = /a{3,}/;*/
+      //表示要求 字符串必须以a结尾
+      /*var patt = /a$/;*/
+      //表示要求 字符串必须以a开头
+      /*var patt = /^a/;*/
+      //从头到尾匹配3到5个a，完全匹配！
+      /*var patt = /^a{3,5}$/;*/
+      var patt = /^\w{5,12}$/;//从头到尾匹配5到12个包含数字、字母、下划线的字符串
+
+
+      /*alert(patt);*/
+
+      var str = "aa";
+
+      alert(patt.test(str));
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

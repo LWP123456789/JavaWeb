@@ -19,3 +19,5 @@ username: lep101
 password: TWl@SXpeKgIiqVVtGX
 LWP13226968149@163.com
 
+宝塔面板域名:
+lwpdbt.work:8888

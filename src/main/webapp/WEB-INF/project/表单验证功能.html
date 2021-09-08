@@ -56,7 +56,7 @@
         {
           var passwordText = password.val();
 
-          var patt = /^[a-z0-9_-]{8,12}$/;
+          var patt = /^[A-Za-z0-9_-]{8,12}$/;
           //验证密码是否输入正确
           if (patt.test(passwordText))
           {
@@ -93,7 +93,7 @@
         {
           var emailText = email.val();
 
-          var patt = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+          var patt = /^([A-Za-z0-9_\.-]+)@([\dA-Za-z\.-]+)\.([A-Za-z\.]{2,6})$/;
 
           if (patt.test(emailText))
           {

@@ -3,16 +3,76 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
          version="5.0">
-    
-    
+
+        <!--context-param是上下文参数(它属于整个web工程)-->
+        <context-param>
+            <param-name>username</param-name>
+            <param-value>context</param-value>
+        </context-param>
+        <context-param>
+            <param-name>password</param-name>
+            <param-value>root</param-value>
+        </context-param>
             
         <servlet>
             <servlet-name>HelloServlet</servlet-name>
             <servlet-class>com.example.ServletKLearning.HelloServlet</servlet-class>
+            <!-- init-param是初始化参数 -->
+            <init-param>
+                <!--是参数名-->
+                <param-name>url</param-name>
+                <!--是参数值-->
+                <param-value>jdbc:mysql://localhost:3306/test</param-value>
+            </init-param>
+            <init-param>
+                <param-name>username</param-name>
+                <param-value>root</param-value>
+            </init-param>
         </servlet>
 
         <servlet-mapping>
             <servlet-name>HelloServlet</servlet-name>
             <url-pattern>/hello</url-pattern>
         </servlet-mapping>
+    
+        <servlet>
+            <servlet-name>HelloServlet2</servlet-name>
+            <servlet-class>com.example.ServletKLearning.HelloServlet2</servlet-class>
+        </servlet>
+    <servlet>
+        <servlet-name>HelloServlet3</servlet-name>
+        <servlet-class>com.example.ServletKLearning.HelloServlet3</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ContextServlet</servlet-name>
+        <servlet-class>com.example.ServletKLearning.ContextServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ContextServlet1</servlet-name>
+        <servlet-class>com.example.ServletKLearning.ContextServlet1</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ContextServlet2</servlet-name>
+        <servlet-class>com.example.ServletKLearning.ContextServlet2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+            <servlet-name>HelloServlet2</servlet-name>
+            <url-pattern>/hello2</url-pattern>
+        </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HelloServlet3</servlet-name>
+        <url-pattern>/hello3</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContextServlet</servlet-name>
+        <url-pattern>/contextServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContextServlet1</servlet-name>
+        <url-pattern>/context1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContextServlet2</servlet-name>
+        <url-pattern>/context2</url-pattern>
+    </servlet-mapping>
 </web-app>

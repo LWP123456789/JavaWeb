@@ -17,10 +17,10 @@ errorPage表示错误后自动跳转去的路径 <br>
     <title>Title</title>
 </head>
 <body>
-    <form action="welcome.jsp" method="get">
+    <form action="check.jsp" method="get">
         <table>
             <tr>
-                <td><span>用户: </span></td><td><input type="text"></td>
+                <td><span>用户: </span></td><td><input type="text" name="user"></td>
             </tr>
             <tr>
                 <td><span>密码：</span></td><td><input type="password" name="pwd"></td>

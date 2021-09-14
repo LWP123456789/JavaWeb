@@ -15,7 +15,11 @@
     <h3 align="right">请文明发言</h3>
     <%
         Vector vr = new Vector();
-        vr = (Vector) application.getAttribute("message"); // 获取application域中的留言信息
+        vr = (Vector) application.getAttribute("message");
+        for (int i = 0; i < vr.size(); i++){
+            String ss = (String) vr.get(i);
+            out.print(ss+"<br/>");
+        }
     %>
 </body>
 </html>

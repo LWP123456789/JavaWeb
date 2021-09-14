@@ -11,12 +11,15 @@
     <title>留言板</title>
 </head>
 <body>
+    <h1 align="center">留言板</h1>
+    <h3 align="right">请文明发言</h3>
     <%
-
-        Vector v = (Vector) application.getAttribute("vector");
-        System.out.println(v);
-
+        Vector vr = new Vector();
+        vr = (Vector) application.getAttribute("message");
+        for (int i = 0; i < vr.size(); i++){
+            String ss = (String) vr.get(i);
+            out.print(ss+"<br/>");
+        }
     %>
-
 </body>
 </html>

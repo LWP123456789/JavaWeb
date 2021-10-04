@@ -20,7 +20,7 @@
         var flagtele=false;
         var flagname=false;
         var flagProvince=false;
-        var flagtech=true;
+        var flagtech=false;
         var n=0;
 
         //标签元素
@@ -65,6 +65,7 @@
             flagPwd=true;
           } else
           {
+            $("#tips_password").html("密码不合法!");
             $("#tips_password").css({color: "red" });
           }
         })
@@ -141,7 +142,7 @@
           }
           else
           {
-            $("#tips_name").html("输入不合法");
+            $("#tips_name").html("输入不合法,请输入2~5个中文字符");
             $("#tips_name").css({color:"red"});
           }
         })
@@ -188,6 +189,7 @@
             alert('注册成功!');
           }
           else{
+            alert('注册失败×,请更改完善表单错误信息');
             return false;
           }
         })

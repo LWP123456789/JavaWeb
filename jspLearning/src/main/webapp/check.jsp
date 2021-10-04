@@ -15,8 +15,8 @@
         // 从表单中获取提交的用户名密码
         String username = request.getParameter("user");
         String password = request.getParameter("pwd");
-        System.out.println(username);
-        System.out.println(password);
+        //System.out.println(username);
+        //System.out.println(password);
         // 验证用户名和密码是否为空
         if(username.equals("") || password.equals("")){
             out.print("<script type='text/javascript'>alert('用户名或密码不能为空!');history.back(-1);</script>");

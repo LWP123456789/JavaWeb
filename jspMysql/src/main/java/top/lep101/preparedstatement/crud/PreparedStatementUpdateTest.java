@@ -66,7 +66,7 @@ public class PreparedStatementUpdateTest {
             String sql = "update user set username = ? where password = ?";
             ps = conn.prepareStatement(sql);
             //3.填充占位符
-            ps.setString(1,"luoweipei");
+            ps.setString(1,"LuoWeiPei");
             ps.setObject(2,"php123456");
             //4.执行sql
             ps.execute();
